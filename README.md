@@ -1,4 +1,4 @@
-# PET-CT-segmentation
+# PET/CT-segmentation
 explore segmentation method for PET/CT images.
 
 In the start of a new project i will implment new PET/CT segmentation from different papers.
