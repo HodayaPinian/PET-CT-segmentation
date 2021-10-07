@@ -5,6 +5,8 @@ In the start of a new project i will implment new PET/CT segmentation from diffe
 
 this is work in progresss 
 
+DATA :  the data i using is dicom converted to nrrd files, so my analyzing on nrrd file. Unfortunately the is private so i cant share it.
+
 first paper : MSAM - "Multimodal Spatial Attention Module for Targeting Multimodal PET-CT Lung Tumor Segmentation" 
 
 arXiv:2007.14728
