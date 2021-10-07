@@ -146,6 +146,10 @@ for i in range(len(all_im)):
     mask, _ = nrrd.read(all_mask[i],index_order='C')
     #standart scale
     im = (im - np.mean(im)) / np.std(im)
+       
+    listMask.append(cv.resize(mask,(InputShape,InputShape)))
+    listImage.append(cv.resize(im,(InputShape,InputShape)))
+
     
    
 
