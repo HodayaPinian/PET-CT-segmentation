@@ -133,9 +133,11 @@ model_CT.summary()
 
 #upload data & preprocessing
 
-path = r'breast\nrrd_files\ac'
-all_im = glob.glob(r'breast\nrrd_files\ac\*OrgVal.*')
-all_mask = glob.glob(r'breast\nrrd_files\ac\*mask.*')
+#### in progress - the basic : 
+
+path = r'nrrd_files\ac'
+all_im = glob.glob(r'nrrd_files\ac\*OrgVal.*')
+all_mask = glob.glob(r'nrrd_files\ac\*mask.*')
 listMask = []
 listImage = []
 for i in range(len(all_im)):
@@ -146,22 +148,10 @@ for i in range(len(all_im)):
     im = (im - np.mean(im)) / np.std(im)
     
    
-    #ct
-    im, _ = nrrd.read(all_im[i],index_order='C')    
-    mask, _ = nrrd.read(all_mask[i],index_order='C')
-    #standart scale
-    mask_ct = cv.resize(mask,(InputShape,InputShape))
-    im = (im - np.mean(im)) / np.std(im)
-    
-    listMask.append([mask_pet, mask_ct])
-    listImage.append(cv.resize(im,(InputShape,InputShape)))
 
 
 
 X_train , X_test, Y_train, Y_test = train_test_split(listImage, listMask, test_size=0.15)
-
-
-
 
 
 #numpy in list to tf
@@ -169,10 +159,9 @@ train_dataset_pet = tf.data.Dataset.from_tensor_slices((X_train, Y_train))
 test_dataset_pet = tf.data.Dataset.from_tensor_slices((X_test, Y_test)) 
 
 #data augmentation
-train_dataset_pet = ...
 
 
-    
+#fit the model    
 PET_model = model_PET.fit(train_dataset_pet, test_dataset_pet, batch_size= 4, epochs = 100, validation_split = 0.15)
 spattial_attatopn_map_train = model_PET.evaluate(X_train)
 spattial_attatopn_map_test  = model_PET.evaluate(X_test)
