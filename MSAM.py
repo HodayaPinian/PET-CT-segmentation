@@ -149,8 +149,8 @@ Adam = optimizers.Adam(learning_rate=0.0001)
 # %%
 #upload data & preprocessing
 
-path = r'nrrd_files\ac'
-all_im = glob.glob(r'nrrd_files\ac\*OrgVal.*')
+path = r'nrrd_files\ac'  #ac == pet images
+all_im = glob.glob(r'nrrd_files\ac\*image.*')
 all_mask = glob.glob(r'nrrd_files\ac\*mask.*')
 listMask = []
 listImage = []
@@ -239,7 +239,7 @@ train_pet_for_ct = (
 # %% CT
 
 path = r'nrrd_files\ct'
-all_im = glob.glob(r'nrrd_files\ct\*OrgVal.*')
+all_im = glob.glob(r'nrrd_files\ct\*image.*')
 all_mask = glob.glob(r'nrrd_files\ct\*mask.*')
 listMask_ct = []
 listImage_ct = []
